@@ -13,6 +13,11 @@ public class UserService {
 
     // 회원 가입
     public User signUp(SignUpRequest request) {
+
+        if (userRepository.existsByUserId(request.getUserId())) {
+            throw new RuntimeException("이미 존재하는 아이디입니다.");
+        }
+
         User newUser = new User();
         newUser.setUserId(request.getUserId());
         newUser.setUserPw(request.getUserPw());
