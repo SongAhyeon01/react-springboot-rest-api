@@ -1,4 +1,4 @@
-
+<<<<<<< HEAD
 # [프로젝트] React - Spring Boot 상품 관리, 주문관리 API 구현
 ## 프로젝트 소개 😎
 React로 만들어진 Front End가 정해져있는 상황에서,
@@ -9,9 +9,7 @@ React로 만들어진 Front End가 정해져있는 상황에서,
 1. 이 repo를 fork한 뒤
 2. 여러분의 개인 Repo에서 상품관리 API를 A-Z까지 작업하여 
 3. 개발이 끝나면 이 Repo에 PR을 보내어 제출을 완료해주세요.
-
----
-
+=======
 # react-springboot-rest-api
 
 
@@ -36,20 +34,15 @@ React로 만들어진 Front End가 정해져있는 상황에서,
 
 ### A. REST API
 
-| Name     | Method | API Path     |
-|----------|--------|--------------|
-| 회원 가입    | POST   | /api/users/signup |
-| 로그인      | POST   | /api/users/signin |
-| /        |        |              |
-| 공연 등록    | POST   | /api/shows   |
-| 공연 전체 조회 | GET    | /api/shows   |
-| 공연 개별 조회 | GET    | /api/shows/{id} |
-| 공연 정보 수정 | PATCH  | /api/shows/{id} |
-| 공연 삭제    | DELETE | /api/shows/{id} |
-| /        |        |              |
-| 예매       | POST   | /api/books   |
-| 예매 확인    | GET    | /api/books/{id} |
-| 예매 취소    | DELETE | /api/books/{id} |
+| Name      | Method | API Path        |
+| --------- | ----   | ----------------|
+| 회원 가입 | POST | /api/users/signup |
+| 로그인    | POST | /api/users/signin |
+|/          |      |                   |
+| 공연 등록 | POST | /api/shows        |
+| 공연 조회 | GET  | /api/shows/{id}   |
+|/          |      |                   |
+| 예매      | POST | /api/book         |
 
 ### B. DB 설계
 
@@ -58,3 +51,4 @@ React로 만들어진 Front End가 정해져있는 상황에서,
 ### C. 클래스 다이어그램
 
 ???
+>>>>>>> dev

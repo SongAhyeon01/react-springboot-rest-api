@@ -1,14 +1,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/interpark?serverTimezone=Asia/Seoul
+    url: jdbc:mysql://localhost:3306/escape?serverTimezone=Asia/Seoul
     username: root
     password: 1234
   jpa:
     open-in-view: true
     hibernate:
       # create : 실행할 때마다 테이블을 drop 하고 다시 생성
-      ddl-auto: update
+      ddl-auto: create
     # 로그에 sql 문을 출력
     show-sql: true
     properties:
