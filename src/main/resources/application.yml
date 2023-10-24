@@ -14,3 +14,13 @@ spring:
     properties:
       # 로그에 sql 문을 formatting 해서 출력
       hibernate.format_sql: true
+
+
+# swagger
+springdoc:
+  packages-to-scan: toyproject.interpark
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    operations-sorter: method, alpha
+    tags-sorter: alpha

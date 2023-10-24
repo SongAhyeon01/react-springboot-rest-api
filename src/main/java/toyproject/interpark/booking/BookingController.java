@@ -1,5 +1,7 @@
 package toyproject.interpark.booking;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import static org.springframework.web.util.UriComponentsBuilder.fromPath;
 
+@Tag(name = "books", description = "공연 예매 api")
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
@@ -17,7 +20,7 @@ public class BookingController {
 
     private final BookingService bookingService;
 
-    // 공연 예매
+    @Operation(summary = "공연 예매")
     @PostMapping("")
     public ResponseEntity<Booking> createBooking(@RequestBody CreateBookingRequest bookingRequest) {
         int bookingId = bookingService.createBooking(bookingRequest);
@@ -27,14 +30,14 @@ public class BookingController {
         return ResponseEntity.created(uri).build();
     }
 
-    // 회원 별 예매한 공연 리스트 조회 -> id는 회원번호
+    @Operation(summary = "회원 번호로 예매한 공연 조회")
     @GetMapping("/{id}")
     public ResponseEntity<List<GetAllBookingsByUserNumProjection>> getAllBookingsByUserNum(@PathVariable int id) {
         List<GetAllBookingsByUserNumProjection> getBookings = bookingService.getAllBookingsByUserNum(id);
         return ResponseEntity.ok(getBookings);
     }
 
-    // 예매 취소
+    @Operation(summary = "예매 번호로 예매 취소")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBooking(@PathVariable int id) {
         bookingService.deleteBooking(id);
