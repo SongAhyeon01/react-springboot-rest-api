@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.persistence.Table;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "`show`")
@@ -23,17 +25,13 @@ public class Show {
 
     // 날짜 형식이어야 함
     @Column(name = "show_date")
-    private String showDate;
+    private LocalDateTime showDate;
 
     @Column(name = "show_price")
     private int showPrice;
 
-    // theater FK 임
-    @Column(name = "theater_id")
-    private int theaterId;
-
     // 사진임
     @Column(name = "show_poster")
-    private float showPoster;
+    private String showPoster;
 
 }

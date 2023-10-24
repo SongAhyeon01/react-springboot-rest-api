@@ -10,6 +10,5 @@ public class UpdateShowRequest {
     private String showName;
     private String showDate;
     private int showPrice;
-    private int theaterId;
-    private float showPoster;
+    private String showPoster;
 }

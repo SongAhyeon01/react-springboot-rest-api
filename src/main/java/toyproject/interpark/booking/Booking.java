@@ -1,4 +1,4 @@
-package toyproject.interpark.book;
+package toyproject.interpark.booking;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -8,28 +8,28 @@ import toyproject.interpark.user.User;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "book")
+@Table(name = "booking")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Book {
+public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "book_id")
-    private int bookId;
+    @Column(name = "booking_id")
+    private int bookingId;
 
-    @Column(name = "book_date")
-    private LocalDateTime bookDate;
+    @Column(name = "booking_date")
+    private LocalDateTime bookingDate;
 
     @JoinColumn(name = "user_num")
     @ManyToOne
-    private User bookUser;
+    private User bookingUser;
 
     @JoinColumn(name = "show_id")
     @ManyToOne
-    private Show bookShow;
+    private Show bookingShow;
 
 }

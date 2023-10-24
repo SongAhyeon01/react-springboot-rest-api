@@ -1,8 +1,8 @@
 
-drop table book;
+drop table booking;
 drop table `show`;
 drop table user;
 
 select * from `show`;
 select * from user;
-select * from book;
+select * from booking;

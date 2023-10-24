@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import toyproject.interpark.show.dto.CreateShowRequest;
 import toyproject.interpark.show.dto.UpdateShowRequest;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,12 +19,19 @@ public class ShowService {
 
     // 공연 등록
     public int createShow(CreateShowRequest showRequest) {
+
+        // String 형을 LocalDateTime 형으로 파싱
+        String requestShowDate = showRequest.getShowDate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime showDate = LocalDateTime.parse(requestShowDate, formatter);
+
         Show newShow = new Show();
+
         newShow.setShowName(showRequest.getShowName());
-        newShow.setShowDate(showRequest.getShowDate());
+        newShow.setShowDate(showDate);
         newShow.setShowPrice(showRequest.getShowPrice());
-        newShow.setTheaterId(showRequest.getTheaterId());
         newShow.setShowPoster(showRequest.getShowPoster());
+
         return showRepository.save(newShow).getShowId();
     }
 
@@ -39,15 +48,19 @@ public class ShowService {
 
     // 공연 정보 수정
     public Show updateShow(int showId, UpdateShowRequest showRequest) {
+
+        String requestShowDate = showRequest.getShowDate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime showDate = LocalDateTime.parse(requestShowDate, formatter);
+
         Optional<Show> optionalShow = showRepository.findById(showId);
 
         if (optionalShow.isPresent()) {
             Show existingShow = optionalShow.get();
 
             existingShow.setShowName(showRequest.getShowName());
-            existingShow.setShowDate(showRequest.getShowDate()); // show를 date 형식으로 바꿔서 그런 것 같음
+            existingShow.setShowDate(showDate);
             existingShow.setShowPrice(showRequest.getShowPrice());
-            existingShow.setTheaterId(showRequest.getTheaterId());
             existingShow.setShowPoster(showRequest.getShowPoster());
 
             return showRepository.save(existingShow);
